@@ -47,20 +47,22 @@ Page {
         id: gridView
         model: heroesModel
         anchors.fill: parent
+        anchors.margins: Theme.paddingSmall
         header: PageHeader {
             title: qsTr("Heroes")
         }
-        height: childrenRect.height
-        width: childrenRect.width
+
         currentIndex: -1
         pressDelay: 120;
+        clip: true
         cacheBuffer: 2000;
         cellWidth: gridView.width / 3
         cellHeight: cellWidth
         delegate: BackgroundItem {
             id: delegate
             width: gridView.cellWidth
-            height: heroLable.height + heroImg.height + Theme.paddingMedium * 2 + Theme.paddingSmall * 2
+//            height: heroLable.height + heroImg.height + Theme.paddingMedium * 2 + Theme.paddingSmall * 2
+            height: gridView.cellHeight
             Label {
                 id:heroLable
                 text: dname
@@ -69,12 +71,12 @@ Page {
                     right: parent.right
                     margins: Theme.paddingSmall
                 }
-
+                height: Theme.itemSizeSmall
                 opacity:0.8
                 font.bold: true
                 maximumLineCount: 2
                 wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-                font.pointSize: Theme.fontSizeSmall
+                font.pixelSize: Theme.fontSizeSmall
                 truncationMode: TruncationMode.Elide
                 horizontalAlignment: Text.AlignLeft
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
