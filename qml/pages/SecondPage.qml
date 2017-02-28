@@ -60,13 +60,21 @@ Page {
         delegate: BackgroundItem {
             id: delegate
             width: gridView.cellWidth
-            height: gridView.cellHeight
+            height: heroLable.height + heroImg.height + Theme.paddingMedium * 2 + Theme.paddingSmall * 2
             Label {
                 id:heroLable
                 text: dname
+                anchors{
+                    left:parent.left
+                    right: parent.right
+                    margins: Theme.paddingSmall
+                }
+
                 opacity:0.8
                 font.bold: true
                 maximumLineCount: 2
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                font.pointSize: Theme.fontSizeSmall
                 truncationMode: TruncationMode.Elide
                 horizontalAlignment: Text.AlignLeft
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
