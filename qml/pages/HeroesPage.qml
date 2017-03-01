@@ -53,9 +53,10 @@ Page {
         currentIndex: -1
         pressDelay: 120;
         clip: true
-        cacheBuffer: 2000;
+        cacheBuffer: 200;
         cellWidth: gridView.width / 3
         cellHeight: cellWidth
+
         delegate: BackgroundItem {
             id: delegate
             width: gridView.cellWidth
@@ -72,10 +73,12 @@ Page {
                 opacity:0.8
                 font.bold: true
                 maximumLineCount: 2
-                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
+                wrapMode: Text.Wrap
+                width: parent.width - Theme.paddingSmall * 2
                 font.pixelSize: Theme.fontSizeSmall
                 truncationMode: TruncationMode.Elide
                 horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
             Image{
@@ -89,12 +92,14 @@ Page {
                source: "heroes/"+hero+"_hphover.png"
             }
 
+
+
             onClicked:{
                 pageStack.push(Qt.resolvedUrl("HeroDetail.qml"),{
                                     "hero":hero,
                                     "heroName":dname,
-                                   "u":u,
-                                   "detail":heroesModel.get(index)
+                                    "u":u,
+                                    "detail":heroesModel.get(index)
                                })
             }
         }
@@ -102,9 +107,7 @@ Page {
     }
 
     Component.onCompleted: {
-        console.log("started!");
         API.heroesPage = heroesPage;
-        API.getHeroes("en.json");
-        console.log("ended!");
+        API.loadHeroes(application.appJson);
     }
 }

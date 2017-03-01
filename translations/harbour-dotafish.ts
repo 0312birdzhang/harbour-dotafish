@@ -8,10 +8,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>load error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>error connection:</source>
         <translation type="unfinished"></translation>
     </message>

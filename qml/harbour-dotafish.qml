@@ -41,7 +41,7 @@ ApplicationWindow
     property bool loading: false
     property string datafile: "en.json";
     property variant appJson
-
+    property string lang: "C"
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
@@ -268,8 +268,13 @@ ApplicationWindow
     Component.onCompleted: {
         API.app = application;
         API.signalcenter = signalCenter;
-//        console.log("Qt.locale:")
-        console.log(Qt.locale().uiLanguages.toString());
+        lang = Qt.locale().uiLanguages.toString();
+        console.log(lang);
+        if(lang == "C"){
+            application.datafile = "en.json";
+        }else{
+            application.datafile = lang.split("_")[0]+".json";
+        }
         API.initJson(application.datafile);
     }
 

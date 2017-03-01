@@ -35,7 +35,8 @@ CONFIG += sailfishapp_i18n
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-dotafish-de.ts
+TRANSLATIONS += translations/harbour-dotafish-de.ts \
+                translations/harbour-dotafish-zh_CN.ts
 
 DISTFILES += \
     qml/pages/API.js \

@@ -60,20 +60,12 @@ function loadJson(oritxt){
 
 
 var heroesPage;
-function getHeroes(datafile){
-    readJsonFile(datafile,loadHeroes);
-}
-
-function loadHeroes(oritxt){
-    var obj = JSON.parse(oritxt);
-    if(obj){
+function loadHeroes(obj){
         heroesPage.listmodel.clear();
         for(var i in obj.herodata){
             obj.herodata[i].hero = i;
             heroesPage.listmodel.append(obj.herodata[i]);
         }
-    }
-    else signalcenter.showMessage(qsTr("load error"));
 }
 
 var listModel;
