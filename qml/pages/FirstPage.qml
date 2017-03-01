@@ -76,5 +76,17 @@ Page {
             }
         }
     }
+
+    Component.onCompleted: {
+        ftimer.running = true;
+    }
+    Timer{
+        id:ftimer
+        interval: 1000;
+        running: false;
+        repeat: false
+
+        onTriggered: pageStack.push(Qt.resolvedUrl("HeroesPage.qml"));
+    }
 }
 

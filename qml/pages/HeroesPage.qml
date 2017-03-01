@@ -73,12 +73,12 @@ Page {
                 opacity:0.8
                 font.bold: true
                 maximumLineCount: 2
-                wrapMode: Text.Wrap
+                wrapMode: Text.WordWrap
                 width: parent.width - Theme.paddingSmall * 2
                 font.pixelSize: Theme.fontSizeSmall
                 truncationMode: TruncationMode.Elide
                 horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
+                verticalAlignment: Text.AlignBottom
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
             Image{

@@ -49,4 +49,5 @@ DISTFILES += \
     qml/pages/SettingPage.qml \
     qml/components/LabelText.qml \
     qml/components/ImagePage.qml \
-    qml/pages/HeroesPage.qml
+    qml/pages/HeroesPage.qml \
+    qml/components/HeroAttribs.qml

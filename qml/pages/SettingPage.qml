@@ -60,7 +60,7 @@ Page {
                 label: qsTr("Donation")
                 text:"如果你觉得此软件你有所益处，你可以选择捐赠本人。当然，本软件是完全"
                     +"免费的，你可以尽情使用。<br/>"+
-                     "  我的支付宝账号:18520399451 <br/> 狗哥的支付宝账号tngou@tngou.net<br/> Donations are welcome :)"
+                     "  我的支付宝账号:18520399451 <br/>Donations are welcome :)"
 
             }
             Item{width:1;height:1}
