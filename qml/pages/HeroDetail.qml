@@ -30,11 +30,22 @@ Page{
         }
         Image{
             id:fullAvt
-            source: "heroes/"+heroName+"_vert.png"
+            source: "heroes/"+heroName+"_vert.jpg"
             width: parent.width> parent.height?parent.width/4:parent.width/2
             anchors{
                 top:heroLabel.bottom
+                left:parent.left
             }
+        }
+        Label{
+            id:heroPeoper
+            anchors{
+                top:fullAvt.top
+                right: parent.right
+
+            }
+
+            text:""
         }
     }
 

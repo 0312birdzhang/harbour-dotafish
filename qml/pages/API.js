@@ -3,15 +3,12 @@ var signalcenter;
 var app;
 
 
-function readJsonFile(source, callback) {
-
+function readJsonFile(url, callback) {
     var xhr = new XMLHttpRequest;
-    xhr.open("GET", source);
+    xhr.open("GET", url);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            console.log(xhr.status);
             var doc = xhr.responseText;
-//            var json = JSON.parse(doc);
             callback(doc);
         }
     }
@@ -24,13 +21,12 @@ function sendWebRequest(url, callback, method, postdata) {
     xmlhttp.onreadystatechange = function() {
                 switch(xmlhttp.readyState) {
                 case xmlhttp.OPENED:signalcenter.loadStarted();break;
-                //case xmlhttp.HEADERS_RECEIVED:if (xmlhttp.status != 200)signalcenter.loadFailed(qsTr("error connection:")+xmlhttp.status+"  "+xmlhttp.statusText);break;
+                case xmlhttp.HEADERS_RECEIVED:if (xmlhttp.status != 200)signalcenter.loadFailed(qsTr("error connection:")+ xmlhttp.status+"  "+xmlhttp.statusText);break;
                 case xmlhttp.DONE:if (xmlhttp.status == 200) {
                         try {
                             callback(xmlhttp.responseText);
                             signalcenter.loadFinished();
                         } catch(e) {
-                            console.log("error");
                             console.log(e)
                             signalcenter.loadFailed(qsTr("loading erro..."));
                         }
@@ -53,9 +49,8 @@ function sendWebRequest(url, callback, method, postdata) {
 }
 
 var heroesPage;
-function getHeroes(datafile){
-    sendWebRequest(datafile,loadHeroes,"GET","");
-//    readJsonFile(datafile,loadHeroes);
+function getHeroes(datafile){    
+    readJsonFile(datafile,loadHeroes);
 }
 
 function loadHeroes(oritxt){
@@ -67,7 +62,7 @@ function loadHeroes(oritxt){
             heroesPage.listmodel.append(obj.herodata[i]);
         }
     }
-    else signalcenter.showMessage(obj.error);
+    else signalcenter.showMessage(qsTr("load error"));
 }
 
 var listModel;

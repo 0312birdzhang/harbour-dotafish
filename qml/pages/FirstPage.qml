@@ -35,18 +35,23 @@ import Sailfish.Silica 1.0
 Page {
     id: page
 
+    property alias contentItem:filick
+    function refresh() {
+
+    }
     // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
     SilicaFlickable {
+        id:filick
         anchors.fill: parent
 
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
             MenuItem {
                 text: qsTr("Show Page 2")
-                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("HeroesPage.qml"))
             }
         }
 

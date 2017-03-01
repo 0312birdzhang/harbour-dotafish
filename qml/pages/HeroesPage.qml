@@ -33,14 +33,12 @@ import Sailfish.Silica 1.0
 import "API.js" as API
 
 Page {
-    id: page
+    id: heroesPage
     property alias listmodel:heroesModel
     ListModel{
         id:heroesModel
     }
 
-
-    // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
     SilicaGridView {
@@ -61,7 +59,6 @@ Page {
         delegate: BackgroundItem {
             id: delegate
             width: gridView.cellWidth
-//            height: heroLable.height + heroImg.height + Theme.paddingMedium * 2 + Theme.paddingSmall * 2
             height: gridView.cellHeight
             Label {
                 id:heroLable
@@ -104,7 +101,9 @@ Page {
     }
 
     Component.onCompleted: {
-        API.heroesPage = page;
+        console.log("started!");
+        API.heroesPage = heroesPage;
         API.getHeroes("dota2api_en.json");
+        console.log("ended!");
     }
 }

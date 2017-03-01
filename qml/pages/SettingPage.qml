@@ -32,7 +32,7 @@ Page {
             Image{
                 id:logo
                 fillMode: Image.Stretch;
-                source:"../pics/victory.png"
+                source:"../gfx/victory.png"
                 anchors.horizontalCenter: parent.horizontalCenter;
             }
 
@@ -46,7 +46,7 @@ Page {
             Item{width:1;height:1}
             LabelText {
                 label: qsTr("Description")
-                text: "健康百科，最全面的健康知识手册。包含最新的健康资讯，最全面的疾病和医疗信息，最丰富的药品与食疗信息，最权威的检查与手术项目解读，为您走向健康生活之路指引方向，是您居家旅行必备软件"
+                text: qsTr("DotaFish is a util for dotaers and sailfishers")
 
             }
             Item{width:1;height:1}

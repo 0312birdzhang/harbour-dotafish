@@ -12,7 +12,7 @@ QtObject{
                  {
                   if (msg||false)
                     {
-                      console.log(msg)
+                      console.log(msg);
                       addNotification(msg);
                     }
                  }

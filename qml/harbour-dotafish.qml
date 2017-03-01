@@ -198,14 +198,67 @@ ApplicationWindow
         }
     }
 
+    //主页列表显示
+    Component {
+        id: indexPageComponent
+        FirstPage {
+            id: indexPage
+            //            property bool _settingsInitialized: false
+            property bool _dataInitialized: false
+            property bool withPanelView: true
+            Binding {
+                target: indexPage.contentItem
+                property: "parent"
+                value: indexPage.status === PageStatus.Active
+                       ? (panelView .closed ? panelView : indexPage) //修正listview焦点
+                       : indexPage
+            }
+            //            Component.onCompleted: {
+            //                if (!_settingsInitialized) {
+            //                    Settings.initialize();
+            //                    _settingsInitialized = true;
+            //                }
+            //            }
+            onStatusChanged: {
+                if (indexPage.status === PageStatus.Active) {
+                    //                    if (!tokenValid) {
+                    //                        startLogin();
+                    //                    } else {
+                    if (!_dataInitialized) {
+                        indexPage.refresh();
+                        _dataInitialized = true;
+                        //                        }
+                    }
+                }
+            }
+        }
+    }
 
     function addNotification(msg){
 
     }
 
-    function toIndexPage(){
-        pageStack.push(Qt.resolvedUrl("pages/SecondPage.qml"))
-    }
+    function toIndexPage() {
+          popAttachedPages();
+          pageStack.replace(indexPageComponent)
+      }
+
+//    function toIndexPage(){
+//        pageStack.push(Qt.resolvedUrl("pages/SecondPage.qml"))
+//    }
+
+    function popAttachedPages() {
+            // find the first page
+            var firstPage = pageStack.previousPage();
+            if (!firstPage) {
+                return;
+            }
+            while (pageStack.previousPage(firstPage)) {
+                firstPage = pageStack.previousPage(firstPage);
+            }
+            // pop to first page
+            pageStack.pop(firstPage);
+        }
 
     Timer{
         id:processingtimer;
@@ -214,8 +267,9 @@ ApplicationWindow
     }
     Component.onCompleted: {
         API.app = application;
-        API.signalcenter =  signalCenter;
-        console.log(Qt.locale());
+        API.signalcenter = signalCenter;
+        console.log("Qt.locale:")
+        console.log(Qt.locale().uiLanguages.toString());
     }
 
 }

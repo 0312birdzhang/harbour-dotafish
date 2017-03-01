@@ -19,7 +19,6 @@ SOURCES += src/harbour-dotafish.cpp
 OTHER_FILES += qml/harbour-dotafish.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-dotafish.changes.in \
     rpm/harbour-dotafish.spec \
     rpm/harbour-dotafish.yaml \
@@ -48,4 +47,5 @@ DISTFILES += \
     qml/components/HorizontalIconTextButton.qml \
     qml/pages/SettingPage.qml \
     qml/components/LabelText.qml \
-    qml/components/ImagePage.qml
+    qml/components/ImagePage.qml \
+    qml/pages/HeroesPage.qml
