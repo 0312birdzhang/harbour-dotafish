@@ -38,7 +38,7 @@
     </message>
 </context>
 <context>
-    <name>harbour-daotaer</name>
+    <name>harbour-dotafish</name>
     <message>
         <source>Welcome to</source>
         <translation type="unfinished"></translation>

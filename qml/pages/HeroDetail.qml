@@ -20,6 +20,7 @@ Page{
 
         Label{
             text:heroName
+            
         }
     }
 }
