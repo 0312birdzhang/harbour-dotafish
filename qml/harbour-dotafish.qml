@@ -39,8 +39,8 @@ ApplicationWindow
 {
     id:application
     property bool loading: false
-    property string datafile: "pages/dota2api_en.json";
-
+    property string datafile: "en.json";
+    property variant appJson
 
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -268,8 +268,9 @@ ApplicationWindow
     Component.onCompleted: {
         API.app = application;
         API.signalcenter = signalCenter;
-        console.log("Qt.locale:")
+//        console.log("Qt.locale:")
         console.log(Qt.locale().uiLanguages.toString());
+        API.initJson(application.datafile);
     }
 
 }

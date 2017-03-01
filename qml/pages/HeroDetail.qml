@@ -5,6 +5,10 @@ Page{
     id:heroDetailPage
     property string heroName
     property string u
+    property string hero
+    property variant detail
+
+    allowedOrientations: Orientation.All
 
     PageHeader{
         id:header
@@ -30,8 +34,8 @@ Page{
         }
         Image{
             id:fullAvt
-            source: "heroes/"+heroName+"_vert.jpg"
-            width: parent.width> parent.height?parent.width/4:parent.width/2
+            source: "heroes/"+hero+"_vert.jpg"
+            width: Screen.width> Screen.height?Screen.width/3:Screen.width/2
             anchors{
                 top:heroLabel.bottom
                 left:parent.left
@@ -45,7 +49,7 @@ Page{
 
             }
 
-            text:""
+            text:detail.droles
         }
     }
 

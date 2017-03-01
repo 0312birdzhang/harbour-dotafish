@@ -5,7 +5,7 @@ var app;
 
 function readJsonFile(url, callback) {
     var xhr = new XMLHttpRequest;
-    xhr.open("GET", url);
+    xhr.open("GET", "datas/"+url);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             var doc = xhr.responseText;
@@ -48,8 +48,19 @@ function sendWebRequest(url, callback, method, postdata) {
     }
 }
 
+
+function initJson(datafile){
+    readJsonFile(datafile,loadJson);
+}
+
+function loadJson(oritxt){
+    var obj = JSON.parse(oritxt);
+    app.appJson = obj;
+}
+
+
 var heroesPage;
-function getHeroes(datafile){    
+function getHeroes(datafile){
     readJsonFile(datafile,loadHeroes);
 }
 

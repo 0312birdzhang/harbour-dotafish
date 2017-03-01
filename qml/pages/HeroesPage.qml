@@ -91,9 +91,10 @@ Page {
 
             onClicked:{
                 pageStack.push(Qt.resolvedUrl("HeroDetail.qml"),{
+                                    "hero":hero,
                                     "heroName":dname,
-                                   "u":u
-
+                                   "u":u,
+                                   "detail":heroesModel.get(index)
                                })
             }
         }
@@ -103,7 +104,7 @@ Page {
     Component.onCompleted: {
         console.log("started!");
         API.heroesPage = heroesPage;
-        API.getHeroes("dota2api_en.json");
+        API.getHeroes("en.json");
         console.log("ended!");
     }
 }
