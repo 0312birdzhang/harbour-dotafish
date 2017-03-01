@@ -41,4 +41,11 @@ TRANSLATIONS += translations/harbour-dotafish-de.ts
 DISTFILES += \
     qml/pages/API.js \
     qml/pages/HeroDetail.qml \
-    qml/pages/Signalcenter.qml
+    qml/pages/Signalcenter.qml \
+    qml/components/Panel.qml \
+    qml/components/PanelView.qml \
+    qml/pages/NavigationPanel.qml \
+    qml/components/HorizontalIconTextButton.qml \
+    qml/pages/SettingPage.qml \
+    qml/components/LabelText.qml \
+    qml/components/ImagePage.qml

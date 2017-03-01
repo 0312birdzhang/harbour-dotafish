@@ -31,6 +31,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "pages"
+import "components"
 import "pages/API.js" as API
 
 
@@ -74,6 +75,40 @@ ApplicationWindow
         }
     Signalcenter{
            id: signalCenter;
+    }
+
+
+    PanelView {
+        id: panelView
+
+        property Page currentPage: pageStack.currentPage
+
+        width: currentPage.width
+        panelWidth: Screen.width *0.6
+        panelHeight: pageStack.currentPage.height
+        height: currentPage && currentPage.contentHeight || pageStack.currentPage.height
+        visible:  (!!currentPage && !!currentPage.withPanelView) || !panelView.closed
+        anchors.centerIn: parent
+        //anchors.verticalCenterOffset:  -(panelHeight - height) / 2
+
+        anchors.horizontalCenterOffset:  0
+
+        Connections {
+            target: pageStack
+            onCurrentPageChanged: panelView.hidePanel()
+        }
+
+        leftPanel: NavigationPanel {
+            id: leftPanel
+            busy: false
+            onClicked: {
+                panelView.hidePanel();
+            }
+
+            Component.onCompleted: {
+                panelView.hidePanel();
+            }
+        }
     }
 
     initialPage: Component {
@@ -179,7 +214,8 @@ ApplicationWindow
     }
     Component.onCompleted: {
         API.app = application;
-        API.signalcenter =  signalCenter
+        API.signalcenter =  signalCenter;
+        console.log(Qt.locale());
     }
 
 }
