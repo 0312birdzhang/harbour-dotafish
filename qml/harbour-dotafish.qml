@@ -40,7 +40,9 @@ ApplicationWindow
     id:application
     property bool loading: false
     property string datafile: "en.json";
+    property string heroDatafile: "hero_en.json";
     property variant appJson
+    property variant heroJson
     property string lang: "C"
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -265,17 +267,29 @@ ApplicationWindow
         interval: 60000;
         onTriggered: signalCenter.loadFailed(qsTr("error"));
     }
+
+
+    onLangChanged:{
+        application.datafile = lang + ".json";
+        application.heroDatafile = "hero_"+lang+".json";
+
+        API.initJson(application.datafile);
+        API.initHeroJson(application.heroDatafile);
+    }
+
     Component.onCompleted: {
         API.app = application;
         API.signalcenter = signalCenter;
         lang = Qt.locale().uiLanguages.toString();
         console.log(lang);
         if(lang == "C"){
+            lang = "en";
             application.datafile = "en.json";
         }else{
             application.datafile = lang.split("_")[0]+".json";
         }
         API.initJson(application.datafile);
+        API.initHeroJson(application.heroDatafile);
     }
 
 }

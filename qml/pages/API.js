@@ -59,6 +59,15 @@ function loadJson(oritxt){
 }
 
 
+function initHeroJson(heroDatafile){
+    readJsonFile(heroDatafile,loadHeroJson);
+}
+
+function loadHeroJson(oritxt){
+    var obj = JSON.parse(oritxt);
+    app.heroJson = obj;
+}
+
 var heroesPage;
 function loadHeroes(obj){
         heroesPage.listmodel.clear();
