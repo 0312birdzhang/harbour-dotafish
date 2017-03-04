@@ -15,7 +15,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>My Cover</source>
+        <source>DotaFish</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -29,8 +29,26 @@
         <source>UI Template</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>HeroAbilities</name>
     <message>
-        <source>Hello Sailors</source>
+        <source>Tips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HeroDetail</name>
+    <message>
+        <source>Bio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Abilities</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -78,10 +96,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DotaFish is a util for dotaers and sailfishers</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Author</source>
         <translation type="unfinished"></translation>
     </message>
@@ -95,6 +109,22 @@
     </message>
     <message>
         <source>Begin clear cache...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DotaFish is a util for dotaers and sailors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My alipay account: 18520399451 &lt;br/&gt;Donations are welcome :)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

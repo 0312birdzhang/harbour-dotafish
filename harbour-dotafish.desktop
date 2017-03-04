@@ -9,5 +9,5 @@ Name=DotaFish
 #
 # Remember to comment out the following line, if you do not want to use
 # a different app name in German locale (de).
-Name[de]=harbour-dotafish
-Name[zh_CN]=刀鱼
+Name[en]=Dotafish
+Name[zh_CN]=刀塔鱼

@@ -4,115 +4,146 @@ import "../components"
 import "./API.js" as API
 Page{
     id:heroDetailPage
-    property string heroName
-    property string u
     property string hero
     property variant detail
-    property variant herodetail
 
     allowedOrientations: Orientation.All
 
-    PageHeader{
-        id:header
-        title: detail.u
+    ListModel{
+        id:abilityModel
     }
 
     SilicaFlickable{
         id:flickable
-        anchors{
-            top:header.bottom
-            left:parent.left
-            right: parent.right
-            margins: Theme.paddingSmall
+        anchors.fill:parent
+        PageHeader{
+            id:header
+            title: detail.u.replace("_"," ") + " ["+heroJson[hero].atk_l + "]"
+            description:  detail.droles
         }
-
-        Label{
-            id:heroPeoper
-            anchors{
-                top:parent.top
-                horizontalCenter: parent.horizontalCenter
-                margins: Theme.paddingSmall
-            }
-            width: Screen.width> Screen.height?Screen.width/4*3:Screen.width/3*2
-            text: detail.droles
-            wrapMode: Text.WordWrap
-            font.pixelSize: Theme.fontSizeSmall
-            color: flickable.highlighted ? Theme.highlightColor : Theme.primaryColor
-        }
-        Image{
-            id:fullAvt
-            source: "heroes/"+hero+"_vert.jpg"
-            width: Screen.width> Screen.height?Screen.width/3:Screen.width/2
-            anchors{
-                top:heroPeoper.bottom
-                left:parent.left
-                margins: Theme.paddingSmall
-            }
-        }
-
-
+        clip: true;
+        contentWidth: width;
+        contentHeight: contentCol.height + Theme.itemSizeExtraLarge
         Column{
-            width: Screen.width -  fullAvt.width
-            height: fullAvt.height
+            id:contentCol
+            width: parent.width
+            spacing: Theme.paddingLarge
             anchors{
-                top:fullAvt.top
-                left:fullAvt.right
+                left: parent.left
+                right: parent.right
+                top:header.bottom
                 margins: Theme.paddingSmall
-
             }
 
-            HeroAttribs{
+            Item { width: 1; height: 1 }
+            Column{
+                anchors{
+                    left:parent.left
+                    right:parent.right
+                }
+
+                Row{
+                    id:avtarAttri
+                    width:parent.width/2
+                    spacing: Theme.paddingLarge
+                    Image{
+                        id:fullAvt
+                        source: "heroes/"+hero+"_vert.jpg"
+                        width: parent.width
+                        height: width*1.2
+                        Image{
+                            source:"../gfx/overviewicon_"+detail.pa+".png"
+                            anchors{
+                                top:parent.top
+                                left:parent.left
+                                margins: Theme.paddingMedium
+                            }
+                        }
+                    }
+
+                    Column {
+                        id:heroProperty
+                        width: parent.width
+
+                        HeroAttribs{
+                            width: parent.width
+                            icon: "../gfx/overviewicon_int.png"
+                            attval: detail.attribs.int.b + " + " +detail.attribs.int.g
+                            ext: "../gfx/overviewicon_attack.png"
+                            extval:detail.attribs.dmg.min + " - " + detail.attribs.dmg.max
+                        }
+                        Item{width: 1;height: fullAvt.height/4}
+                        HeroAttribs{
+                            width: parent.width
+                            icon:"../gfx/overviewicon_agi.png"
+                            attval: detail.attribs.agi.b + " + " +detail.attribs.int.g
+                            ext: "../gfx/overviewicon_speed.png"
+                            extval:detail.attribs.ms
+                        }
+                        Item{width: 1;height: fullAvt.height/4}
+                        HeroAttribs{
+                            width: parent.width
+                            icon:"../gfx/overviewicon_str.png"
+                            attval: detail.attribs.str.b + " + " +detail.attribs.int.g
+                            ext: "../gfx/overviewicon_defense.png"
+                            extval:detail.attribs.armor
+                        }
+
+                    }
+                }
+            }
+
+            Item { width: 1; height: 1 }
+            Column{
+                anchors{
+                    left:parent.left
+                    right: parent.right
+                }
                 width: parent.width
-                icon: "../gfx/overviewicon_int.png"
-                attval: detail.attribs.int.b + " + " +detail.attribs.int.g
-                ext: "../gfx/overviewicon_attack.png"
-                extval:detail.attribs.dmg.min + " - " + detail.attribs.dmg.max
-            }
-            Item{width: 1;height: fullAvt.height/4}
-            HeroAttribs{
-                width: parent.width
-                icon:"../gfx/overviewicon_agi.png"
-                attval: detail.attribs.agi.b + " + " +detail.attribs.int.g
-                ext: "../gfx/overviewicon_speed.png"
-                extval:detail.attribs.ms
-            }
-            Item{width: 1;height: fullAvt.height/4}
-            HeroAttribs{
-                width: parent.width
-                icon:"../gfx/overviewicon_str.png"
-                attval: detail.attribs.str.b + " + " +detail.attribs.int.g
-                ext: "../gfx/overviewicon_defense.png"
-                extval:detail.attribs.armor
+                spacing: Theme.paddingLarge
+                LabelText {
+                        label: qsTr("Bio")
+                        text: heroJson[hero].bio;
+                }
+                Item{
+                    width: 1
+                    height: Theme.itemSizeSmall
+                }
+
+                LabelText{
+                    label:qsTr("Abilities")
+                    text:""
+                }
+
+                Repeater{
+                    id:screenshotview;
+                    model: abilityModel
+                    delegate: HeroAbilities{
+                        abilityImg: "abilities/"+ability+"_hp1.png";
+                        abilityDesc: desc
+                        abilityName: dname
+                        abilityNotes: notes
+                        abilityList: affects+attrib
+                    }
+                }
+
+
             }
 
-        }
 
-        LabelText {
-                label: qsTr("Bio")
-                text: herodetail.bio;
+      }
 
-            }
+        VerticalScrollDecorator{flickable: flickable}
 
     }
 
-// {
-//     "antimage": {
-//         "name": "Anti-Mage",
-//         "bio": "The monks of Turstarkuri watched the rugged valleys below their mountain monastery as wave after wave of invaders swept through the lower kingdoms. Ascetic and pragmatic, in their remote monastic eyrie they remained aloof from mundane strife, wrapped in meditation that knew no gods or elements of magic. Then came the Legion of the Dead God, crusaders with a sinister mandate to replace all local worship with their Unliving Lord's poisonous nihilosophy. From a landscape that had known nothing but blood and battle for a thousand years, they tore the souls and bones of countless fallen legions and pitched them against Turstarkuri. The monastery stood scarcely a fortnight against the assault, and the few monks who bothered to surface from their meditations believed the invaders were but demonic visions sent to distract them from meditation. They died where they sat on their silken cushions. Only one youth survived--a pilgrim who had come as an acolyte, seeking wisdom, but had yet to be admitted to the monastery. He watched in horror as the monks to whom he had served tea and nettles were first slaughtered, then raised to join the ranks of the Dead God's priesthood. With nothing but a few of Turstarkuri's prized dogmatic scrolls, he crept away to the comparative safety of other lands, swearing to obliterate not only the Dead God's magic users--but to put an end to magic altogether. ",
-//         "atk": "melee",
-//         "atk_l": "Melee",
-//         "roles": [
-//             "Carry",
-//             "Escape",
-//             "Nuker"
-//         ],
-//         "roles_l": [
-//             "Carry",
-//             "Escape",
-//             "Nuker"
-//         ]
-//     },
     Component.onCompleted: {
-        herodetail = heroJson.hero;
+//        console.log(hero)
+        for(var i in appJson.abilitydata){
+            if(i.indexOf(hero+"_") == 0){
+                appJson.abilitydata[i].ability = i
+                abilityModel.append(appJson.abilitydata[i]);
+            }
+        }
     }
 }

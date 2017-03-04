@@ -50,4 +50,5 @@ DISTFILES += \
     qml/components/LabelText.qml \
     qml/components/ImagePage.qml \
     qml/pages/HeroesPage.qml \
-    qml/components/HeroAttribs.qml
+    qml/components/HeroAttribs.qml \
+    qml/components/HeroAbilities.qml

@@ -96,7 +96,7 @@ Page {
 
             onClicked:{
                 pageStack.push(Qt.resolvedUrl("HeroDetail.qml"),{
-                                    "hero":hero
+                                    "hero":hero,
                                     "detail":heroesModel.get(index)
                                })
             }

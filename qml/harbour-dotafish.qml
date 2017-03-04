@@ -269,19 +269,22 @@ ApplicationWindow
     }
 
 
+
     onLangChanged:{
         application.datafile = lang + ".json";
         application.heroDatafile = "hero_"+lang+".json";
-
         API.initJson(application.datafile);
         API.initHeroJson(application.heroDatafile);
+        API.setLanguage(lang);
     }
 
     Component.onCompleted: {
         API.app = application;
         API.signalcenter = signalCenter;
         lang = Qt.locale().uiLanguages.toString();
-        console.log(lang);
+
+//        lang = API.getLanguage();
+//        console.log(lang);
         if(lang == "C"){
             lang = "en";
             application.datafile = "en.json";

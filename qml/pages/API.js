@@ -1,6 +1,65 @@
 .pragma library
+.import QtQuick.LocalStorage 2.0 as SQL
 var signalcenter;
 var app;
+
+
+
+var languages = ([
+                 {
+                    "country":"简体中文",
+                    "abbreviation":"cn"
+                 },
+                 {
+                     "country":"English",
+                     "abbreviation":"en"
+                 },
+                 {
+                     "country":"한국어",
+                     "abbreviation":"ko"
+                 },
+                 {
+                     "country":"Deutsch",
+                     "abbreviation":"de"
+                 }
+
+            ])
+
+function getDatabase() {
+    return SQL.LocalStorage.openDatabaseSync("dotafish", "1.0", "languages", 10000);
+}
+
+function initDB() {
+    var db = getDatabase();
+    db.transaction(
+                function(tx) {
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS languages(language TEXT primary key);');
+
+                });
+}
+
+
+function getLanguage() {
+    var lang = "en";
+    initDB();
+    var db = getDatabase();
+    db.transaction(function(tx) {
+        var rs = tx.executeSql("SELECT * FROM languages",[]);
+        if (rs.rows.length > 0 ) {
+            lang = rs.rows[0].language;
+            console.log("language:"+lang);
+        }
+    });
+    return lang;
+}
+
+function setLanguage(lang){
+    var db = getDatabase();
+        db.transaction(function(tx) {
+            tx.executeSql('INSERT OR REPLACE INTO languages values(?);',[lang]);
+           }
+        );
+}
 
 
 function readJsonFile(url, callback) {
@@ -67,6 +126,9 @@ function loadHeroJson(oritxt){
     var obj = JSON.parse(oritxt);
     app.heroJson = obj;
 }
+
+
+
 
 var heroesPage;
 function loadHeroes(obj){

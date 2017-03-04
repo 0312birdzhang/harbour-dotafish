@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
+import "./API.js" as API
 
 Page {
     id: aboutPage;
@@ -15,9 +16,7 @@ Page {
         clip: true;
         contentWidth: width;
         contentHeight: contentCol.height + Theme.paddingLarge * 5
-        RemorsePopup {
-            id: remorse
-        }
+
         Column {
             id: contentCol;
             anchors {
@@ -46,7 +45,7 @@ Page {
             Item{width:1;height:1}
             LabelText {
                 label: qsTr("Description")
-                text: qsTr("DotaFish is a util for dotaers and sailfishers")
+                text: qsTr("DotaFish is a util for dotaers and sailors")
 
             }
             Item{width:1;height:1}
@@ -58,26 +57,46 @@ Page {
             Item{width:1;height:1}
             LabelText {
                 label: qsTr("Donation")
-                text:"如果你觉得此软件你有所益处，你可以选择捐赠本人。当然，本软件是完全"
-                    +"免费的，你可以尽情使用。<br/>"+
-                     "  我的支付宝账号:18520399451 <br/>Donations are welcome :)"
+                text:   qsTr("My alipay account: 18520399451 <br/>Donations are welcome :)");
 
             }
             Item{width:1;height:1}
             SectionHeader {
-                //: headline for application licensing information
-                text: "设置"
+                text: qsTr("Settings")
             }
-            Item{
-                width: parent.width
-                height:imgswitch.height
-                TextSwitch {
-                    id: imgswitch
-//                    checked: openimg == 1
-//                    onClicked: updateSetting()
-                    text: "显示图片"
+            ComboBox {
+                label: qsTr("Language:")
+                currentIndex:{
+                    var langArray = ["en","cn","ko","de"];
+                    return langArray.indexOf(application.lang);
                 }
 
+                menu: ContextMenu {
+                    MenuItem {
+                        text: "English"
+                        onClicked: {
+                            application.lang = "en"
+                        }
+                    }
+                    MenuItem {
+                        text: "简体中文"
+                        onClicked: {
+                            application.lang = "cn"
+                        }
+                    }
+                    MenuItem {
+                        text: "한국어"
+                        onClicked: {
+                            application.lang = "ko"
+                        }
+                    }
+                    MenuItem {
+                        text: "Deutsch"
+                        onClicked: {
+                            application.lang = "de"
+                        }
+                    }
+                }
             }
             Item{width:1;height:1}
             Button{
