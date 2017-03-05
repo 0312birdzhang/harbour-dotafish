@@ -17,7 +17,7 @@ Page {
     SilicaFlickable{
         id:filick
         anchors.fill: parent
-        contentHeight: col.height + comps.height
+        contentHeight: col.height + comps.height + col.spacing * 2
         contentWidth: width;
         PageHeader{
             id:header
@@ -107,6 +107,8 @@ Page {
         Column{
             id:comps
             spacing: Theme.paddingSmall
+            width: parent.width
+            height: compgrid.height
             anchors{
                 top:col.bottom
                 left:parent.left
@@ -124,11 +126,11 @@ Page {
                     model: compModel
                     BackgroundItem {
                             id: delegate
-                            width: itemLabel.height + cimg.height + Theme.itemSizeExtraSmall
-                            height: width
+                            height: (parent.width - Theme.paddingMedium ) / 4
+                            width: (parent.width - Theme.paddingMedium ) / 4
                             Label {
                                 id:itemLabel
-                                text: application.appJson.itemdata[citem].dname
+                                text: citem == "recipe" ?"":application.appJson.itemdata[citem].dname
                                 anchors{
                                     left:parent.left
                                     right: parent.right
@@ -136,14 +138,12 @@ Page {
                                 }
                                 height: Theme.itemSizeSmall
                                 opacity:0.8
-                                font.bold: true
                                 maximumLineCount: 2
                                 wrapMode: Text.WordWrap
                                 width: parent.width - Theme.paddingSmall * 2
-                                font.pixelSize: Theme.fontSizeSmall
+                                font.pixelSize: Theme.fontSizeTiny
                                 truncationMode: TruncationMode.Elide
                                 horizontalAlignment: Text.AlignLeft
-                                verticalAlignment: Text.AlignBottom
                                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
                             }
                             Image{
