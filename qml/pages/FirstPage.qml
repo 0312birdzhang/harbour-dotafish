@@ -36,10 +36,7 @@ Page {
     id: page
 
     property alias contentItem:filick
-    function refresh() {
 
-    }
-    // The effective value will be restricted by ApplicationWindow.allowedOrientations
     allowedOrientations: Orientation.All
 
     // To enable PullDownMenu, place our content in a SilicaFlickable
@@ -59,13 +56,40 @@ Page {
             Button{
                 id:heroBtn
                 text:qsTr("Heroes")
+                anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("HeroesPage.qml"));
             }
             Button{
                 id:itemBtn
                 text:qsTr("Items")
+                anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("ItemsPage.qml"));
             }
+        }
+    }
+
+    Component{
+        id:disc
+        DisclaimerDialog{
+            acceptDestination: page
+        }
+    }
+
+    Timer{
+        id:timer
+        running: false
+        interval:1000
+
+        onTriggered:{
+            pageStack.push(disc)
+        }
+    }
+
+    Component.onCompleted: {
+        if(!settings.get_accepted_status()){
+            timer.running = true;
+        }else{
+            timer.running = true;
         }
     }
 

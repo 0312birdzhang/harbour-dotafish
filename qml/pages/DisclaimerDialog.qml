@@ -5,6 +5,7 @@ import "../components"
 
 Dialog {
     id: disclaimer
+    acceptDestinationAction: PageStackAction.Pop
 
     Component.onCompleted: {
         settings.set_accepted_status(false);
@@ -33,9 +34,6 @@ Dialog {
             }
         }
     }
-
-    acceptDestinationReplaceTarget: Qt.resolvedUrl("FirstPage.qml");
-
     onAccepted: settings.set_accepted_status(true)
-    onRejected: Qt.quit()
+    onRejected: Qt.quit();
 }

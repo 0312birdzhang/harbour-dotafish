@@ -28,23 +28,19 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifdef QT_QML_DEBUG
 #include <QtQuick>
-#endif
-
+#include <QQuickView>
+#include <QGuiApplication>
 #include <sailfishapp.h>
 #include "settings.h"
 
 int main(int argc, char *argv[])
 {
-    // SailfishApp::main() will display "qml/template.qml", if you need more
-    // control over initialization, you can use:
-    //
-    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
-    //   - SailfishApp::createView() to get a new QQuickView * instance
-    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
-    //
-    // To display the view, call "show()" (will show fullscreen on device).
     qmlRegisterType<SettingsObject>("harbour.dotafish.settings",1,0,"SettingsObject");
-    return SailfishApp::main(argc, argv);
+    QGuiApplication *app = SailfishApp::application(argc, argv);
+    QScopedPointer<QQuickView> view(SailfishApp::createView());
+    view->setSource(SailfishApp::pathTo("qml/harbour-dotafish.qml"));
+    view->show();
+    QObject::connect((QObject*)view->engine(), SIGNAL(quit()), app, SLOT(quit()));
+    return app->exec();
 }

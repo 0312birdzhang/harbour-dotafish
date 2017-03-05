@@ -112,5 +112,29 @@ function loadHeroes(obj,searchString){
         }
 }
 
-var listModel;
+var itemsPage;
+function loadItems(obj,searchString){
+    itemsPage.listmodel.clear();
+    for(var i in obj.itemdata){
+        if(i.indexOf("river_painter") > -1 ){
+            continue;
+        }
+
+        if(searchString){
+            if(i.indexOf(searchString) > -1){
+                obj.itemdata[i].item = i;
+                obj.itemdata[i].cd = obj.itemdata[i].cd.toString();
+                obj.itemdata[i].mc = obj.itemdata[i].mc.toString();
+                obj.itemdata[i].qual = obj.itemdata[i].qual.toString();
+                itemsPage.listmodel.append(obj.itemdata[i]);
+            }
+        }else{
+            obj.itemdata[i].item = i;
+            obj.itemdata[i].cd = obj.itemdata[i].cd.toString();
+            obj.itemdata[i].mc = obj.itemdata[i].mc.toString();
+            obj.itemdata[i].qual = obj.itemdata[i].qual.toString();
+            itemsPage.listmodel.append(obj.itemdata[i]);
+        }
+    }
+}
 

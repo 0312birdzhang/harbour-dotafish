@@ -209,7 +209,6 @@ ApplicationWindow
         id: indexPageComponent
         FirstPage {
             id: indexPage
-            //            property bool _settingsInitialized: false
             property bool _dataInitialized: false
             property bool withPanelView: true
             Binding {
@@ -219,59 +218,28 @@ ApplicationWindow
                        ? (panelView .closed ? panelView : indexPage) //修正listview焦点
                        : indexPage
             }
-            //            Component.onCompleted: {
-            //                if (!_settingsInitialized) {
-            //                    Settings.initialize();
-            //                    _settingsInitialized = true;
-            //                }
-            //            }
+
             onStatusChanged: {
                 if (indexPage.status === PageStatus.Active) {
-                    //                    if (!tokenValid) {
-                    //                        startLogin();
-                    //                    } else {
                     if (!_dataInitialized) {
-                        indexPage.refresh();
                         _dataInitialized = true;
-                        //                        }
                     }
                 }
             }
         }
     }
 
-    //免责声明页面
-//    Component {
-//        id: discPageComponent
-//        DisclaimerDialog {
-//            id: discPage
-////            property bool withPanelView: false
-//            Binding {
-//                target: discPage.contentItem
-//                property: "parent"
-//                value: discPage.status === PageStatus.Active
-//                       ? (panelView .closed ? panelView : discPage) //修正listview焦点
-//                       : discPage
-//            }
-//        }
-//    }
+
     function addNotification(msg){
 
     }
 
     function toIndexPage() {
         popAttachedPages();
-        toDisclaimerPage();
-//        if(settings.get_accepted_status()){
-//          pageStack.replace(indexPageComponent)
-//        }else{
-//          toDisclaimerPage();
-//        }
+        pageStack.replace(indexPageComponent)
+
       }
 
-    function toDisclaimerPage(){
-        pageStack.replace(Qt.resolvedUrl("pages/DisclaimerDialog.qml"));
-    }
 
     function popAttachedPages() {
             // find the first page

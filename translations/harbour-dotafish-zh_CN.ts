@@ -25,15 +25,12 @@
 <context>
     <name>DisclaimerDialog</name>
     <message>
-        <location filename="../qml/pages/DisclaimerDialog.qml" line="22"/>
+        <location filename="../qml/pages/DisclaimerDialog.qml" line="23"/>
         <source>Disclaimer</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>DisclaimerLabel</name>
     <message>
-        <location filename="../qml/components/DisclaimerLabel.qml" line="7"/>
+        <location filename="../qml/pages/DisclaimerDialog.qml" line="28"/>
         <source>This application use some image resource is from valve....balabalabalabalabalabla....</source>
         <translation type="unfinished"></translation>
     </message>
@@ -41,12 +38,12 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="61"/>
+        <location filename="../qml/pages/FirstPage.qml" line="58"/>
         <source>Heroes</source>
         <translation type="unfinished">英雄</translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="66"/>
+        <location filename="../qml/pages/FirstPage.qml" line="64"/>
         <source>Items</source>
         <translation type="unfinished"></translation>
     </message>
@@ -95,6 +92,22 @@
     <message>
         <location filename="../qml/components/ImagePage.qml" line="148"/>
         <source>Error loading image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ItemDetail</name>
+    <message>
+        <location filename="../qml/pages/ItemDetail.qml" line="101"/>
+        <source>Components</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ItemsPage</name>
+    <message>
+        <location filename="../qml/pages/ItemsPage.qml" line="53"/>
+        <source>Items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -162,7 +175,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="292"/>
+        <location filename="../qml/harbour-dotafish.qml" line="260"/>
         <source>error</source>
         <translation type="unfinished"></translation>
     </message>

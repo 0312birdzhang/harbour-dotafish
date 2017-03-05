@@ -54,7 +54,8 @@ DISTFILES += \
     qml/components/HeroAttribs.qml \
     qml/components/HeroAbilities.qml \
     qml/pages/ItemsPage.qml \
-    qml/pages/DisclaimerDialog.qml
+    qml/pages/DisclaimerDialog.qml \
+    qml/pages/ItemDetail.qml
 
 HEADERS += \
     src/settings.h

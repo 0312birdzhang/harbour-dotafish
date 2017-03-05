@@ -25,9 +25,6 @@
         <source>Disclaimer</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>DisclaimerLabel</name>
     <message>
         <source>This application use some image resource is from valve....balabalabalabalabalabla....</source>
         <translation type="unfinished"></translation>
@@ -81,6 +78,20 @@
     </message>
     <message>
         <source>Error loading image</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ItemDetail</name>
+    <message>
+        <source>Components</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ItemsPage</name>
+    <message>
+        <source>Items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
