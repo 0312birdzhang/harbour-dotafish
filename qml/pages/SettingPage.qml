@@ -6,6 +6,11 @@ import "./API.js" as API
 Page {
     id: aboutPage;
     allowedOrientations: Orientation.Portrait | Orientation.Landscape
+
+    ListModel{
+        id:langModel
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         PageHeader{
@@ -45,7 +50,7 @@ Page {
             Item{width:1;height:1}
             LabelText {
                 label: qsTr("Description")
-                text: qsTr("DotaFish is a util for dotaers and sailors")
+                text: qsTr("DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve")
 
             }
             Item{width:1;height:1}
@@ -61,56 +66,31 @@ Page {
 
             }
             Item{width:1;height:1}
-            SectionHeader {
-                text: qsTr("Settings")
-            }
-            ComboBox {
-                label: qsTr("Language:")
-                currentIndex:{
-                    var langArray = ["en","cn","ko","de"];
-                    return langArray.indexOf(application.lang);
-                }
+//            SectionHeader {
+//                text: qsTr("Settings")
+//            }
+//            ComboBox {
+//                label: qsTr("Language:")
+//                menu: ContextMenu {
+//                    Repeater{
+//                        model:langModel
+//                        MenuItem {
+//                            text: country
+//                            onClicked: {
+//                                application.lang = abbreviation
+//                            }
+//                        }
+//                    }
+//                }
+//            }
 
-                menu: ContextMenu {
-                    MenuItem {
-                        text: "English"
-                        onClicked: {
-                            application.lang = "en"
-                        }
-                    }
-                    MenuItem {
-                        text: "简体中文"
-                        onClicked: {
-                            application.lang = "cn"
-                        }
-                    }
-                    MenuItem {
-                        text: "한국어"
-                        onClicked: {
-                            application.lang = "ko"
-                        }
-                    }
-                    MenuItem {
-                        text: "Deutsch"
-                        onClicked: {
-                            application.lang = "de"
-                        }
-                    }
-                }
-            }
-            Item{width:1;height:1}
-            Button{
-                id:clearButton
-                text:qsTr("clear cache")
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: {
-                    remorse.execute(qsTr("Begin clear cache..."),function(){
-//                        py.clearCache();
-                    },3000);
-                }
-            }
 
 
         }
+    }
+    Component.onCompleted: {
+//        for(var i in API.languages){
+//            langModel.push(API.languages[i]);
+//        }
     }
 }

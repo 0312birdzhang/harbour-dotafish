@@ -4,12 +4,12 @@
 <context>
     <name>API</name>
     <message>
-        <location filename="../qml/pages/API.js" line="83"/>
+        <location filename="../qml/pages/API.js" line="49"/>
         <source>error connection:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">连接失败:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/API.js" line="90"/>
+        <location filename="../qml/pages/API.js" line="56"/>
         <source>loading erro...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -23,29 +23,45 @@
     </message>
 </context>
 <context>
-    <name>FirstPage</name>
+    <name>DisclaimerDialog</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="53"/>
-        <source>Show Page 2</source>
+        <location filename="../qml/pages/DisclaimerDialog.qml" line="22"/>
+        <source>Disclaimer</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>DisclaimerLabel</name>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="69"/>
-        <source>UI Template</source>
+        <location filename="../qml/components/DisclaimerLabel.qml" line="7"/>
+        <source>This application use some image resource is from valve....balabalabalabalabalabla....</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FirstPage</name>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="61"/>
+        <source>Heroes</source>
+        <translation type="unfinished">英雄</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/FirstPage.qml" line="66"/>
+        <source>Items</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HeroAbilities</name>
     <message>
-        <location filename="../qml/components/HeroAbilities.qml" line="59"/>
+        <location filename="../qml/components/HeroAbilities.qml" line="61"/>
         <source>Tips</source>
-        <translation type="unfinished"></translation>
+        <translation>提示</translation>
     </message>
     <message>
-        <location filename="../qml/components/HeroAbilities.qml" line="66"/>
+        <location filename="../qml/components/HeroAbilities.qml" line="68"/>
         <source>Summary</source>
-        <translation type="unfinished"></translation>
+        <translation>描述</translation>
     </message>
 </context>
 <context>
@@ -53,20 +69,20 @@
     <message>
         <location filename="../qml/pages/HeroDetail.qml" line="105"/>
         <source>Bio</source>
-        <translation type="unfinished"></translation>
+        <translation>英雄背景</translation>
     </message>
     <message>
         <location filename="../qml/pages/HeroDetail.qml" line="114"/>
         <source>Abilities</source>
-        <translation type="unfinished"></translation>
+        <translation>技能</translation>
     </message>
 </context>
 <context>
     <name>HeroesPage</name>
     <message>
-        <location filename="../qml/pages/HeroesPage.qml" line="50"/>
+        <location filename="../qml/pages/HeroesPage.qml" line="53"/>
         <source>Heroes</source>
-        <translation type="unfinished"></translation>
+        <translation>英雄</translation>
     </message>
 </context>
 <context>
@@ -92,81 +108,61 @@
     <message>
         <location filename="../qml/pages/NavigationPanel.qml" line="96"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">设置</translation>
     </message>
 </context>
 <context>
     <name>SettingPage</name>
     <message>
-        <location filename="../qml/pages/SettingPage.qml" line="13"/>
+        <location filename="../qml/pages/SettingPage.qml" line="18"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingPage.qml" line="42"/>
-        <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>关于</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingPage.qml" line="47"/>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
+        <source>Version</source>
+        <translation>版本</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingPage.qml" line="48"/>
-        <source>DotaFish is a util for dotaers and sailors</source>
-        <translation type="unfinished"></translation>
+        <location filename="../qml/pages/SettingPage.qml" line="52"/>
+        <source>Description</source>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingPage.qml" line="53"/>
+        <source>DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingPage.qml" line="58"/>
         <source>Author</source>
-        <translation type="unfinished"></translation>
+        <translation>作者</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingPage.qml" line="59"/>
+        <location filename="../qml/pages/SettingPage.qml" line="64"/>
         <source>Donation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingPage.qml" line="60"/>
-        <source>My alipay account: 18520399451 &lt;br/&gt;Donations are welcome :)</source>
-        <translation type="unfinished"></translation>
+        <translation>捐赠</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingPage.qml" line="65"/>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingPage.qml" line="68"/>
-        <source>Language:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingPage.qml" line="104"/>
-        <source>clear cache</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingPage.qml" line="107"/>
-        <source>Begin clear cache...</source>
-        <translation type="unfinished"></translation>
+        <source>My alipay account: 18520399451 &lt;br/&gt;Donations are welcome :)</source>
+        <translation>我的支付宝帐号是：18520399451，欢迎捐赠 :) </translation>
     </message>
 </context>
 <context>
     <name>harbour-dotafish</name>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="134"/>
+        <location filename="../qml/harbour-dotafish.qml" line="138"/>
         <source>Welcome to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="145"/>
+        <location filename="../qml/harbour-dotafish.qml" line="149"/>
         <source>DotaFish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="268"/>
+        <location filename="../qml/harbour-dotafish.qml" line="292"/>
         <source>error</source>
         <translation type="unfinished"></translation>
     </message>

@@ -47,46 +47,28 @@ Page {
         id:filick
         anchors.fill: parent
 
-        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Show Page 2")
-                onClicked: pageStack.push(Qt.resolvedUrl("HeroesPage.qml"))
-            }
-        }
-
-        // Tell SilicaFlickable the height of its content.
         contentHeight: column.height
-
-        // Place our content in a Column.  The PageHeader is always placed at the top
-        // of the page, followed by our content.
         Column {
             id: column
-
             width: page.width
+            anchors.horizontalCenter: parent.horizontalCenter
             spacing: Theme.paddingLarge
             PageHeader {
-                title: qsTr("UI Template")
+                title: ""
             }
-            Label {
-                x: Theme.horizontalPageMargin
-                text: application.lang
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge
+            Button{
+                id:heroBtn
+                text:qsTr("Heroes")
+                onClicked: pageStack.push(Qt.resolvedUrl("HeroesPage.qml"));
+            }
+            Button{
+                id:itemBtn
+                text:qsTr("Items")
+                onClicked: pageStack.push(Qt.resolvedUrl("ItemsPage.qml"));
             }
         }
     }
 
-    Component.onCompleted: {
-        ftimer.running = true;
-    }
-    Timer{
-        id:ftimer
-        interval: 1000;
-        running: false;
-        repeat: false
 
-        onTriggered: pageStack.push(Qt.resolvedUrl("HeroesPage.qml"));
-    }
 }
 

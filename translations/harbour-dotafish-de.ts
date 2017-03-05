@@ -20,14 +20,28 @@
     </message>
 </context>
 <context>
+    <name>DisclaimerDialog</name>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DisclaimerLabel</name>
+    <message>
+        <source>This application use some image resource is from valve....balabalabalabalabalabla....</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
-        <source>Show Page 2</source>
-        <translation>Zur Seite 2</translation>
+        <source>Heroes</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>UI Template</source>
-        <translation>UI-Vorlage</translation>
+        <source>Items</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -104,27 +118,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>clear cache</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Begin clear cache...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>DotaFish is a util for dotaers and sailors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My alipay account: 18520399451 &lt;br/&gt;Donations are welcome :)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Language:</source>
+        <source>DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

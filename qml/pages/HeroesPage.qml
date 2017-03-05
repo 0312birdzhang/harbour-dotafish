@@ -35,35 +35,59 @@ import "API.js" as API
 Page {
     id: heroesPage
     property alias listmodel:heroesModel
+    property variant heroesArr
+    property string searchString
+    onSearchStringChanged: API.loadHeroes(application.appJson,searchString);
     ListModel{
         id:heroesModel
     }
 
     allowedOrientations: Orientation.All
 
+    Column {
+        id: headerContainer
+
+        width: heroesPage.width
+
+        PageHeader {
+            title: qsTr("Heroes")
+        }
+
+        SearchField {
+            id: searchField
+            width: parent.width
+
+            Binding {
+                target: heroesPage
+                property: "searchString"
+                value: searchField.text.toLowerCase().trim()
+            }
+        }
+    }
     SilicaGridView {
         id: gridView
         model: heroesModel
         anchors.fill: parent
         anchors.margins: Theme.paddingSmall
-        header: PageHeader {
-            title: qsTr("Heroes")
-        }
-
         currentIndex: -1
         pressDelay: 120;
         clip: true
         cacheBuffer: 200;
-        cellWidth: gridView.width / 3
+        cellWidth: Screen.width > Screen.height? gridView.width / 5:gridView.width / 3
         cellHeight: cellWidth
-
+        header: Item {
+            id: header
+            width: headerContainer.width
+            height: headerContainer.height
+            Component.onCompleted: headerContainer.parent = header
+        }
         delegate: BackgroundItem {
             id: delegate
             width: gridView.cellWidth
             height: gridView.cellHeight
             Label {
                 id:heroLable
-                text: dname
+                text: Theme.highlightText(model.dname, searchString, delegate.highlighted ? Theme.primaryColor:Theme.highlightColor)
                 anchors{
                     left:parent.left
                     right: parent.right
@@ -106,6 +130,7 @@ Page {
 
     Component.onCompleted: {
         API.heroesPage = heroesPage;
-        API.loadHeroes(application.appJson);
+        API.loadHeroes(application.appJson,searchString);
     }
+
 }

@@ -30,6 +30,9 @@ Item {
             Item { width: 1; height: 1 }
             Column{
                 width: parent.width - abilityImg.width
+                anchors{
+                    margins: Theme.paddingMedium
+                }
 
                 Label{
                     id:abilityName
@@ -48,7 +51,6 @@ Item {
                         right:parent.right
                         rightMargin: Theme.paddingMedium
                     }
-
                     font.pixelSize: Theme.fontSizeExtraSmall
                 }
             }

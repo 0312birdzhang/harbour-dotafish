@@ -33,7 +33,7 @@
 #endif
 
 #include <sailfishapp.h>
-
+#include "settings.h"
 
 int main(int argc, char *argv[])
 {
@@ -45,6 +45,6 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
-
+    qmlRegisterType<SettingsObject>("harbour.dotafish.settings",1,0,"SettingsObject");
     return SailfishApp::main(argc, argv);
 }

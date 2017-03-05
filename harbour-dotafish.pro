@@ -14,7 +14,8 @@ TARGET = harbour-dotafish
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-dotafish.cpp
+SOURCES += src/harbour-dotafish.cpp \
+    src/settings.cpp
 
 OTHER_FILES += qml/harbour-dotafish.qml \
     qml/cover/CoverPage.qml \
@@ -51,4 +52,9 @@ DISTFILES += \
     qml/components/ImagePage.qml \
     qml/pages/HeroesPage.qml \
     qml/components/HeroAttribs.qml \
-    qml/components/HeroAbilities.qml
+    qml/components/HeroAbilities.qml \
+    qml/pages/ItemsPage.qml \
+    qml/pages/DisclaimerDialog.qml
+
+HEADERS += \
+    src/settings.h

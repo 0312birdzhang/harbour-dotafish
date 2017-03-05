@@ -57,7 +57,7 @@ Panel {
                 height: width
                 anchors.centerIn: cover
                 asynchronous: true
-                source: "../gfx/victory.png"
+                source: "../gfx/icefrog.jpg"
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {

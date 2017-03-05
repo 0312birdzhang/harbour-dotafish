@@ -4,15 +4,15 @@ var signalcenter;
 var app;
 
 
-
+var langArray = ["en","zh-CN","ko","de-DE"];
 var languages = ([
                  {
                     "country":"简体中文",
-                    "abbreviation":"cn"
+                    "abbreviation":"zh-CN"
                  },
                  {
                      "country":"English",
-                     "abbreviation":"en"
+                     "abbreviation":"en-US"
                  },
                  {
                      "country":"한국어",
@@ -20,46 +20,12 @@ var languages = ([
                  },
                  {
                      "country":"Deutsch",
-                     "abbreviation":"de"
+                     "abbreviation":"de-DE"
                  }
 
             ])
 
-function getDatabase() {
-    return SQL.LocalStorage.openDatabaseSync("dotafish", "1.0", "languages", 10000);
-}
 
-function initDB() {
-    var db = getDatabase();
-    db.transaction(
-                function(tx) {
-                    tx.executeSql('CREATE TABLE IF NOT EXISTS languages(language TEXT primary key);');
-
-                });
-}
-
-
-function getLanguage() {
-    var lang = "en";
-    initDB();
-    var db = getDatabase();
-    db.transaction(function(tx) {
-        var rs = tx.executeSql("SELECT * FROM languages",[]);
-        if (rs.rows.length > 0 ) {
-            lang = rs.rows[0].language;
-            console.log("language:"+lang);
-        }
-    });
-    return lang;
-}
-
-function setLanguage(lang){
-    var db = getDatabase();
-        db.transaction(function(tx) {
-            tx.executeSql('INSERT OR REPLACE INTO languages values(?);',[lang]);
-           }
-        );
-}
 
 
 function readJsonFile(url, callback) {
@@ -131,11 +97,18 @@ function loadHeroJson(oritxt){
 
 
 var heroesPage;
-function loadHeroes(obj){
+function loadHeroes(obj,searchString){
         heroesPage.listmodel.clear();
         for(var i in obj.herodata){
-            obj.herodata[i].hero = i;
-            heroesPage.listmodel.append(obj.herodata[i]);
+            if(searchString){
+                if(i.indexOf(searchString) > -1){
+                    obj.herodata[i].hero = i;
+                    heroesPage.listmodel.append(obj.herodata[i]);
+                }
+            }else{
+                obj.herodata[i].hero = i;
+                heroesPage.listmodel.append(obj.herodata[i]);
+            }
         }
 }
 

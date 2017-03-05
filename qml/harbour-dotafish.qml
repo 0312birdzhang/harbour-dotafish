@@ -30,6 +30,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import harbour.dotafish.settings 1.0
 import "pages"
 import "components"
 import "pages/API.js" as API
@@ -39,11 +40,11 @@ ApplicationWindow
 {
     id:application
     property bool loading: false
-    property string datafile: "en.json";
-    property string heroDatafile: "hero_en.json";
+    property string datafile: "en-US.json";
+    property string heroDatafile: "hero_en-US.json";
     property variant appJson
     property variant heroJson
-    property string lang: "C"
+    property string lang:"en-US"
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
@@ -59,6 +60,9 @@ ApplicationWindow
         id: remorse
     }
 
+    SettingsObject {
+        id: settings
+    }
     Connections{
             target: signalCenter;
             onLoadStarted:{
@@ -236,18 +240,38 @@ ApplicationWindow
         }
     }
 
+    //免责声明页面
+//    Component {
+//        id: discPageComponent
+//        DisclaimerDialog {
+//            id: discPage
+////            property bool withPanelView: false
+//            Binding {
+//                target: discPage.contentItem
+//                property: "parent"
+//                value: discPage.status === PageStatus.Active
+//                       ? (panelView .closed ? panelView : discPage) //修正listview焦点
+//                       : discPage
+//            }
+//        }
+//    }
     function addNotification(msg){
 
     }
 
     function toIndexPage() {
-          popAttachedPages();
-          pageStack.replace(indexPageComponent)
+        popAttachedPages();
+        toDisclaimerPage();
+//        if(settings.get_accepted_status()){
+//          pageStack.replace(indexPageComponent)
+//        }else{
+//          toDisclaimerPage();
+//        }
       }
 
-//    function toIndexPage(){
-//        pageStack.push(Qt.resolvedUrl("pages/SecondPage.qml"))
-//    }
+    function toDisclaimerPage(){
+        pageStack.replace(Qt.resolvedUrl("pages/DisclaimerDialog.qml"));
+    }
 
     function popAttachedPages() {
             // find the first page
@@ -275,22 +299,24 @@ ApplicationWindow
         application.heroDatafile = "hero_"+lang+".json";
         API.initJson(application.datafile);
         API.initHeroJson(application.heroDatafile);
-        API.setLanguage(lang);
     }
+
 
     Component.onCompleted: {
         API.app = application;
         API.signalcenter = signalCenter;
-        lang = Qt.locale().uiLanguages.toString();
-
-//        lang = API.getLanguage();
-//        console.log(lang);
-        if(lang == "C"){
-            lang = "en";
-            application.datafile = "en.json";
+        var autolang = Qt.locale().uiLanguages.toString();
+        if(autolang == "C"){
+            autolang = "en-US";
         }else{
-            application.datafile = lang.split("_")[0]+".json";
+            if(API.langArray.indexOf(autolang) > -1){
+            }else{
+                autolang = "en-US";
+            }
         }
+        lang = autolang;
+        application.datafile = lang+".json";
+        console.log("datafile:"+datafile);
         API.initJson(application.datafile);
         API.initHeroJson(application.heroDatafile);
     }
