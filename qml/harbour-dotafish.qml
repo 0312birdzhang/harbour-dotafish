@@ -44,7 +44,7 @@ ApplicationWindow
     property string heroDatafile: "hero_en-US.json";
     property variant appJson
     property variant heroJson
-    property string lang:"en-US"
+    property string lang
 
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: defaultAllowedOrientations
@@ -267,24 +267,31 @@ ApplicationWindow
         application.heroDatafile = "hero_"+lang+".json";
         API.initJson(application.datafile);
         API.initHeroJson(application.heroDatafile);
+        settings.set_language(lang);
     }
 
 
     Component.onCompleted: {
         API.app = application;
         API.signalcenter = signalCenter;
-        var autolang = Qt.locale().uiLanguages.toString();
-        if(autolang == "C"){
-            autolang = "en-US";
-        }else{
-            if(API.langArray.indexOf(autolang) > -1){
-            }else{
+        var langset = settings.get_language();
+        if(langset == "C"){
+            var autolang = Qt.locale().uiLanguages.toString();
+            if(autolang == "C"){
                 autolang = "en-US";
+            }else{
+                if(API.langArray.indexOf(autolang) > -1){
+                }else{
+                    autolang = "en-US";
+                }
             }
+            lang = autolang;
+        }else{
+            lang = langset;
         }
-        lang = autolang;
+        
         application.datafile = lang+".json";
-        console.log("datafile:"+datafile);
+        // console.log("datafile:"+datafile);
         API.initJson(application.datafile);
         API.initHeroJson(application.heroDatafile);
     }

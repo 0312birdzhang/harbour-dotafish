@@ -61,6 +61,18 @@ desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
    %{buildroot}%{_datadir}/applications/*.desktop
 
+%postun
+if [ $1 = 0 ]; then
+    
+  rm -rf /home/nemo/.config/harbour-dotafish/harbour-dotafish.conf
+else
+  if [ $1 = 1 ]; then
+      // Do stuff specific to upgrades
+    echo "Upgrading"
+  fi
+fi
+
+
 %files
 %defattr(-,root,root,-)
 %{_bindir}

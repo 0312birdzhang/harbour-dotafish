@@ -161,6 +161,16 @@
         <source>My alipay account: 18520399451 &lt;br/&gt;Donations are welcome :)</source>
         <translation>我的支付宝帐号是：18520399451，欢迎捐赠 :) </translation>
     </message>
+    <message>
+        <location filename="../qml/pages/SettingPage.qml" line="70"/>
+        <source>Settings</source>
+        <translation type="unfinished">设置</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingPage.qml" line="74"/>
+        <source>Data Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>harbour-dotafish</name>

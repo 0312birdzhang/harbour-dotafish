@@ -136,6 +136,14 @@
         <source>DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>harbour-dotafish</name>

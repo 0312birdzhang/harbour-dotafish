@@ -75,23 +75,17 @@ Page {
         }
     }
 
-    Timer{
-        id:timer
-        running: false
-        interval:1000
-
-        onTriggered:{
-            pageStack.push(disc)
+    onStatusChanged:{
+        if(status == PageStatus.Active){
+            if(!settings.get_accepted_status()){
+                pageStack.push(disc)
+            }
         }
     }
-
     Component.onCompleted: {
-        if(!settings.get_accepted_status()){
-            timer.running = true;
-        }else{
-            timer.running = true;
-        }
+ 
     }
+
 
 
 }

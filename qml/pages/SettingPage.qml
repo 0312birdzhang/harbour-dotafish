@@ -66,31 +66,32 @@ Page {
 
             }
             Item{width:1;height:1}
-//            SectionHeader {
-//                text: qsTr("Settings")
-//            }
-//            ComboBox {
-//                label: qsTr("Language:")
-//                menu: ContextMenu {
-//                    Repeater{
-//                        model:langModel
-//                        MenuItem {
-//                            text: country
-//                            onClicked: {
-//                                application.lang = abbreviation
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-
-
-
+           SectionHeader {
+               text: qsTr("Settings")
+           }
+           ComboBox {
+               id:cobb
+               label: qsTr("Data Language:")
+               menu: ContextMenu {
+                   Repeater{
+                       model:langModel
+                       MenuItem {
+                           text: country
+                           onClicked: {
+                               application.lang = abbreviation
+                           }
+                       }
+                   }
+               }
+           }
         }
     }
     Component.onCompleted: {
-//        for(var i in API.languages){
-//            langModel.push(API.languages[i]);
-//        }
+       for(var i in API.languages){
+           langModel.append(API.languages[i]);
+           if(API.languages[i].abbreviation == settings.get_language()){
+               cobb.currentIndex = i;
+           }
+       }
     }
 }

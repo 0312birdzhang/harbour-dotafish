@@ -4,7 +4,7 @@ var signalcenter;
 var app;
 
 
-var langArray = ["en","zh-CN","ko","de-DE"];
+var langArray = ["en-US","zh-CN","ko","de-DE"];
 var languages = ([
                  {
                     "country":"简体中文",

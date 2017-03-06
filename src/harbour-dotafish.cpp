@@ -41,6 +41,6 @@ int main(int argc, char *argv[])
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->setSource(SailfishApp::pathTo("qml/harbour-dotafish.qml"));
     view->show();
-    QObject::connect((QObject*)view->engine(), SIGNAL(quit()), app, SLOT(quit()));
+    // QObject::connect((QObject*)view->engine(), SIGNAL(quit()), app, SLOT(quit()));
     return app->exec();
 }
