@@ -17,7 +17,7 @@ Page {
     SilicaFlickable{
         id:filick
         anchors.fill: parent
-        contentHeight: col.height + comps.height + col.spacing * 2
+        contentHeight: col.height + comps.height * (compModel.count/4 + 1) + col.spacing * 2
         contentWidth: width;
         PageHeader{
             id:header
@@ -34,7 +34,7 @@ Page {
 
             Row{
                 spacing: Theme.paddingMedium
-                anchors.leftMargin: Theme.paddingMedium
+                anchors.leftMargin: Theme.paddingLarge
                 Image{
                     source: "./items/"+item+"_lg.png"
                 }
@@ -84,7 +84,8 @@ Page {
 
             Row{
                 spacing: Theme.paddingLarge
-                anchors.leftMargin: Theme.paddingMedium
+                anchors.leftMargin: Theme.paddingLarge
+
                 Image{
                     source: "../gfx/cooldown.png"
                     anchors.verticalCenter: cd.verticalCenter
@@ -122,6 +123,7 @@ Page {
                     right:parent.right
                 }
                 columns: 4
+                height: childrenRect.height
                 Repeater {
                     model: compModel
                     BackgroundItem {
@@ -136,7 +138,7 @@ Page {
                                     right: parent.right
                                     margins: Theme.paddingSmall
                                 }
-                                height: Theme.itemSizeSmall
+
                                 opacity:0.8
                                 maximumLineCount: 2
                                 wrapMode: Text.WordWrap
@@ -151,13 +153,16 @@ Page {
                                 anchors{
                                     left:parent.left
                                     right:parent.right
-                                    top:itemLabel.bottom
-                                    margins: Theme.paddingMedium
+                                    bottom:parent.bottom
+                                    margins: Theme.paddingSmall
                                 }
                                source: "items/"+citem+"_lg.png"
                             }
                             onClicked:{
                                 enabled:citem != "recipe"
+                                if(citem == "recipe"){
+                                    return;
+                                }
                                 application.appJson.itemdata[model.citem].item = model.citem
                                 pageStack.replace(Qt.resolvedUrl("ItemDetail.qml"),
                                                {

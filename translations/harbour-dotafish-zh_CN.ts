@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>API</name>
     <message>
         <location filename="../qml/pages/API.js" line="49"/>
         <source>error connection:</source>
-        <translation type="unfinished">连接失败:</translation>
+        <translation>连接失败:</translation>
     </message>
     <message>
         <location filename="../qml/pages/API.js" line="56"/>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="37"/>
         <source>DotaFish</source>
-        <translation type="unfinished"></translation>
+        <translation>刀塔鱼</translation>
     </message>
 </context>
 <context>
@@ -27,12 +27,12 @@
     <message>
         <location filename="../qml/pages/DisclaimerDialog.qml" line="23"/>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation>免责声明</translation>
     </message>
     <message>
         <location filename="../qml/pages/DisclaimerDialog.qml" line="28"/>
-        <source>This application use some image resource is from valve....balabalabalabalabalabla....</source>
-        <translation type="unfinished"></translation>
+        <source>This application use some image resource and data resoure is licensed to valve,if you accept this disclaimer,it means you know all about that.I am not liable for any other damage caused by use,balabalabalabalabalabla....</source>
+        <translation>本应用程序使用的图片资源以及数据资源归Valve所有，代码归本人所有，如果你接受本声明代表你已经了解了上述说明。对于使用本软件造成的一切损失，责任不归本人承担。巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉~</translation>
     </message>
 </context>
 <context>
@@ -40,12 +40,12 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="58"/>
         <source>Heroes</source>
-        <translation type="unfinished">英雄</translation>
+        <translation>英雄</translation>
     </message>
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="64"/>
         <source>Items</source>
-        <translation type="unfinished"></translation>
+        <translation>物品</translation>
     </message>
 </context>
 <context>
@@ -98,9 +98,9 @@
 <context>
     <name>ItemDetail</name>
     <message>
-        <location filename="../qml/pages/ItemDetail.qml" line="101"/>
+        <location filename="../qml/pages/ItemDetail.qml" line="102"/>
         <source>Components</source>
-        <translation type="unfinished"></translation>
+        <translation>配件</translation>
     </message>
 </context>
 <context>
@@ -108,20 +108,20 @@
     <message>
         <location filename="../qml/pages/ItemsPage.qml" line="53"/>
         <source>Items</source>
-        <translation type="unfinished"></translation>
+        <translation>物品</translation>
     </message>
 </context>
 <context>
     <name>NavigationPanel</name>
     <message>
-        <location filename="../qml/pages/NavigationPanel.qml" line="77"/>
+        <location filename="../qml/pages/NavigationPanel.qml" line="78"/>
         <source>medical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/NavigationPanel.qml" line="96"/>
+        <location filename="../qml/pages/NavigationPanel.qml" line="97"/>
         <source>Settings</source>
-        <translation type="unfinished">设置</translation>
+        <translation>设置</translation>
     </message>
 </context>
 <context>
@@ -143,7 +143,7 @@
     </message>
     <message>
         <location filename="../qml/pages/SettingPage.qml" line="53"/>
-        <source>DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve</source>
+        <source>DotaFish is a util for dotaers and sailors,all the resource is licensed to valve</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -164,12 +164,12 @@
     <message>
         <location filename="../qml/pages/SettingPage.qml" line="70"/>
         <source>Settings</source>
-        <translation type="unfinished">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <location filename="../qml/pages/SettingPage.qml" line="74"/>
         <source>Data Language:</source>
-        <translation type="unfinished"></translation>
+        <translation>数据语言</translation>
     </message>
 </context>
 <context>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../qml/harbour-dotafish.qml" line="149"/>
         <source>DotaFish</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">刀塔鱼</translation>
     </message>
     <message>
         <location filename="../qml/harbour-dotafish.qml" line="260"/>

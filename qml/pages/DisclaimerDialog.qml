@@ -25,7 +25,7 @@ Dialog {
 
             Label {
 
-                property string disclaimertext: qsTr("This application use some image resource is from valve....balabalabalabalabalabla....")
+                property string disclaimertext: qsTr("This application use some image resource and data resoure is licensed to valve,if you accept this disclaimer,it means you know all about that.I am not liable for any other damage caused by use,balabalabalabalabalabla....")
 
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width - Theme.paddingMedium * 2

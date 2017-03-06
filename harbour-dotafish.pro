@@ -59,3 +59,7 @@ DISTFILES += \
 
 HEADERS += \
     src/settings.h
+
+zh.path = /usr/share/$${TARGET}/translations
+zh.files += $$PWD/translations/harbour-dotafish-zh_CN.qm
+INSTALLS += zh

@@ -26,7 +26,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This application use some image resource is from valve....balabalabalabalabalabla....</source>
+        <source>This application use some image resource and data resoure is licensed to valve,if you accept this disclaimer,it means you know all about that.I am not liable for any other damage caused by use,balabalabalabalabalabla....</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -133,15 +133,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Data Language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>DotaFish is a util for dotaers and sailors,all the resource is licensed to valve</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -67,6 +67,7 @@ Panel {
             }
         }
         Item {
+            visible: false
             width: column.width
             height: Theme.itemSizeExtraSmall
             HorizontalIconTextButton {

@@ -101,7 +101,7 @@ function loadHeroes(obj,searchString){
         heroesPage.listmodel.clear();
         for(var i in obj.herodata){
             if(searchString){
-                if(i.indexOf(searchString) > -1){
+                if(obj.herodata[i].dname.indexOf(searchString) > -1){
                     obj.herodata[i].hero = i;
                     heroesPage.listmodel.append(obj.herodata[i]);
                 }
@@ -121,7 +121,7 @@ function loadItems(obj,searchString){
         }
 
         if(searchString){
-            if(i.indexOf(searchString) > -1){
+            if(obj.itemdata[i].dname.indexOf(searchString) > -1){
                 obj.itemdata[i].item = i;
                 obj.itemdata[i].cd = obj.itemdata[i].cd.toString();
                 obj.itemdata[i].mc = obj.itemdata[i].mc.toString();

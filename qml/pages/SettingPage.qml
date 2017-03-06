@@ -50,7 +50,7 @@ Page {
             Item{width:1;height:1}
             LabelText {
                 label: qsTr("Description")
-                text: qsTr("DotaFish is a util for dotaers and sailors,all the resource is linsinced to valve")
+                text: qsTr("DotaFish is a util for dotaers and sailors,all the resource is licensed to valve")
 
             }
             Item{width:1;height:1}
