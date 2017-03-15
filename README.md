@@ -13,4 +13,4 @@
 
    - [x] 多语言切换
    
-   - [ ] 添加物品合成测试 (tadas.krasauskas 建议)
+   - [ ] 添加物品合成测试 (tadas.krasauskas 建议)
