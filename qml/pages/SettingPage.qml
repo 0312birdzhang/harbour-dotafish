@@ -36,7 +36,7 @@ Page {
             Image{
                 id:logo
                 fillMode: Image.Stretch;
-                source:"../gfx/victory.png"
+                source:"image://theme/harbour-dotafish"
                 anchors.horizontalCenter: parent.horizontalCenter;
             }
 

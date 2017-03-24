@@ -41,6 +41,7 @@ TRANSLATIONS += translations/harbour-dotafish-de.ts \
 
 DISTFILES += \
     qml/pages/API.js \
+    qml/pages/quiz.js \
     qml/pages/HeroDetail.qml \
     qml/pages/Signalcenter.qml \
     qml/components/Panel.qml \
@@ -55,7 +56,8 @@ DISTFILES += \
     qml/components/HeroAbilities.qml \
     qml/pages/ItemsPage.qml \
     qml/pages/DisclaimerDialog.qml \
-    qml/pages/ItemDetail.qml
+    qml/pages/ItemDetail.qml \
+    qml/pages/QuizPage.qml
 
 HEADERS += \
     src/settings.h

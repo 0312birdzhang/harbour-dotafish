@@ -133,6 +133,20 @@ ApplicationWindow
                     anchors.fill: parent
                     width: parent.width
                     height: parent.height
+
+                    Image{
+                        source: "./gfx/dota.png"
+                        width: parent.width
+                        height: width/250*135
+                        fillMode: Image.PreserveAspectFit
+                        anchors{
+                            top:parent.top
+                            topMargin: Theme.itemSizeLarge
+                            leftMargin: Theme.paddingSmall
+                            rightMargin: Theme.paddingSmall
+                        }
+                    }
+
                     Label{
                         id:welcomFont
                         text:qsTr("Welcome to")
@@ -159,7 +173,7 @@ ApplicationWindow
 
                     Label{
                         id:vendor
-                        text:"BirdZhang"
+                        text:"by BirdZhang"
                         font.pixelSize: Theme.fontSizeMedium
                         //color: Theme.highlightColor
                         opacity:0.5

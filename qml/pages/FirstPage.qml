@@ -65,6 +65,12 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(Qt.resolvedUrl("ItemsPage.qml"));
             }
+            Button{
+                id:quizBtn
+                text:qsTr("Quiz")
+                anchors.horizontalCenter: parent.horizontalCenter
+                onClicked: pageStack.push(Qt.resolvedUrl("QuizPage.qml"));
+            }
         }
     }
 

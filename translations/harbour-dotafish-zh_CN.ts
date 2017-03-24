@@ -175,17 +175,17 @@
 <context>
     <name>harbour-dotafish</name>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="138"/>
+        <location filename="../qml/harbour-dotafish.qml" line="152"/>
         <source>Welcome to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="149"/>
+        <location filename="../qml/harbour-dotafish.qml" line="163"/>
         <source>DotaFish</source>
         <translation type="unfinished">刀塔鱼</translation>
     </message>
     <message>
-        <location filename="../qml/harbour-dotafish.qml" line="260"/>
+        <location filename="../qml/harbour-dotafish.qml" line="274"/>
         <source>error</source>
         <translation type="unfinished"></translation>
     </message>

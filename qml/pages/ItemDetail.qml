@@ -30,6 +30,8 @@ Page {
                 top:header.bottom
                 left:parent.left
                 right: parent.right
+                leftMargin: Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
             }
 
             Row{
